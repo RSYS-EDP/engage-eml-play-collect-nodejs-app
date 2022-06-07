@@ -1,4 +1,4 @@
-# engage-rest-api-play-collect-sample-php
+# engage-rest-api-play-collect-sample-js
 Engage REST API sample usage using JS
 
 
