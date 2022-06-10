@@ -2,74 +2,166 @@
 Engage REST API sample usage using JS
 
 
-### Creating the Server Application
+CUSTOMER BUSINESS APPLICATION
+This section describes how to create a sample Customer Business Application and interaction with EDP. 
+5.1	Node.js example
+5.1.1	Installing
+Assuming you’ve already installed Node.js, create a directory to hold your application, and make that your working directory.
+$ mkdir myapp
+$ cd myapp
 
-The following section explains about how to create a Node.js server application using the <Gather> and <Say> verbs.
+Use the npm init command to create a package.json file for your application. 
+$ npm init
 
-Gather DTMF Input
+Note: This command prompts you for a number of things, such as the name and version of your application. For now, you can simply hit ENTER to accept the defaults.
+Now install Express in the myapp directory and save it in the dependencies list. For example:
+$ npm install express --save
 
-In the following example, the server application receives a HTTP POST request and sends EML response to fetch the DTMF input from the user. Based on the user input or noinput received, the call is disconnected after playing a “Thank You” message.
+5.1.2	Create Server Application
+Below are the Node.js examples using Gather and Say verbs.  
+5.1.2.1	Gather DTMF Input
+Below application will receive a HTTP POST request, in response it will send EML to fetch DTMF input from user. On user input/noinput call will be disconnected after playing a “Thank You” prompt.
+In the myapp directory, create a file named index.js and copy in the code from the example above.
+const express = require('express')
+const app = express()
+app.use(express.urlencoded({
+    extended: true
+}))
+var qs = require('qs');
+const port = 3000
+const publicIp = "localhost";
 
-### Installing the Customer Application
+app.listen(port, () => {
+  console.log(`Node server is running at http://localhost:${port}`)
+})
 
-Note: Before you install, ensure that Node.js is installed. For more information, see Installing Node.js.
+function fetchUserInputEML(req, res, next){ 
+	const myUrl = "http://" + publicIp + ":" + port + "/gatherAction";
 
-and install the npm packages
+// If you are using NGROK – edit the path - see below NGROK section for details. 
+// const myUrl = “https://60bc-27-7-127-107.ngrok.io/gatherAction”;
+	return '<?xml version="1.0" encoding="UTF-8"?> \
+		<Response> <Gather input="dtmf" timeout="5" actionOnEmptyResult="true" action="' + myUrl + '"> \
+		<Say> Welcome to Engage Digital Platform ! </Say> <Say> Please provide your input </Say> </Gather> </Response>';
+}
+//***************************************** */
+//Initial EML Fetch Handler
+//***************************************************** */
+//This is default GET method handler
+app.get('/', function (req, res) {
+	console.log("Printing parameters received for / (GET) ", req.query);
+	
+    // set response header
+    res.status = 200;
+    res.header("Content-Type", "text/xml");
+    
+    // set response content    
+	res.send(fetchUserInputEML())
+});
 
-$ npm install
+// This is GET path 
+app.get('/eml', function (req, res) {
+	console.log("Printing parameters received for /eml (GET) ", req.query);
+	
+    // set response header
+    res.status = 200;
+    res.header("Content-Type", "text/xml");
+        
+    // set response content    
+	res.send(fetchUserInputEML())
+	
+});
 
-### Executing the Server Application
-If your application is using public IP address, execute the server application with the following command.
+// This is POST method handler
+app.post('/eml', function (req, res) {
+	console.log("Printing parameters received for /eml (POST) ", req.body);
+    // set response header
+    res.status = 200;
+    res.header("Content-Type", "text/xml");
+        
+    // set response content    
+	res.send(fetchUserInputEML())
+});
 
+//*************************************** */
+// Gather action handler 
+//************************************* */
+// This is GET path 
+app.get('/gatherAction', function (req, res) {
+	console.log("Printing parameters received for /gatherAction (GET) ", req.query);
+	
+    // set response header
+    res.status = 200;
+    res.header("Content-Type", "text/xml");
+        
+    // set response content    
+    res.send('<?xml version="1.0" encoding="UTF-8"?> <Response><Say> Thank you I received input </Say></Response>');
+
+});
+// This is POST method handler
+app.post('/gatherAction', function (req, res) {
+	console.log("Printing parameters received for /gatherAction (POST) ", req.body);
+    // set response header
+    res.status = 200;
+    res.header("Content-Type", "text/xml");
+        
+    // set response content    
+    res.send('<?xml version="1.0" encoding="UTF-8"?> <Response><Say> Thank you I received input </Say></Response>');
+});
+
+//***************************************** */
+// CALL API StatusCallBack webhook handler
+// ***************************************
+app.get('/statuscallback', function (req, res) {
+    console.log("Printing parameters received for /statuscallback (GET) ", req.query);
+
+	res.status = 200;
+    // send 200 OK response    
+	res.send('');
+
+});
+app.post('/statuscallback', function (req, res) {
+    console.log("Printing parameters received for /statuscallback (POST) ", req.body);
+	
+	res.status = 200;
+    // send 200 OK response    
+	res.send('');
+});
+
+Note: Make sure 3000 port is free, if 3000 port is used by any other application you can change the port.
+If you have public ip replace localhost in line:8 with your public ip and jump to section 5.1.4. If you don’t know the public ip continue with section 5.1.3. 
+5.1.3	Application behind NAT (Optional)
+You can use NGROK (ngrok.com) to expose your local machine to internet. It’s a quick way to test web application from internet. You can let EDP interact with your application running on local machine without really having a public IP or domain name. 
+
+Below mentioned steps needs to be executed if your application is running behind NAT. Otherwise jump to section 5.1.4.
+
+•	Download ngrok from https://ngrok.com/download
+•	ngrok binary is a command line executable.
+•	Run the following command. 
+
+Here is sequence of commands if you are using linux machine. 
+$wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+$unzip ngrok-stable-linux-amd64.zip
+$rm ngrok-stable-linux-amd64.zip
+$chmod 755 ngrok
+$sudo mv ngrok /usr/bin/
+$ngrok http 3000
+
+This command will provide you the public URL which you can use in the application. In the sample show http://60bc-27-7-127-107.ngrok.io and https://60bc-27-7-127-107.ngrok.io are the public URL.
+ 
+The path referred in sample application can be used with NGROK tunnel URL as illustrated below. Only https example is listed below but you can use http also likewise. Note you will have to change the NGROK tunnel URL as per your local setting: 
+Path 	Public URL (using NGROK)
+/eml	https://60bc-27-7-127-107.ngrok.io/eml
+/gatherAction	https://60bc-27-7-127-107.ngrok.io/gatherAction
+/statuscallback	https://60bc-27-7-127-107.ngrok.io/statuscallback
+
+/ (no path specified)	https://60bc-27-7-127-107.ngrok.io/
+
+5.1.4	Run Server Application
+Run the app with the following command:
 $ node index.js
 
-### Application behind NAT
-NOTE: This is an optional step while creating a sample customer business application.
 
-You can use ngrok (https://ngrok.com/) to expose your local machine to the Internet. It is easy to test the Web application from the Internet. This allows EDP to interact with your application running on the local machine without any public IP address or domain name.
-
-If your application is not running behind the Network Address Translation (NAT), see Executing the Server Application.
-
-Perform the following steps if your application is running behind NAT.
-
-Download the ngrok from https://ngrok.com/download
-
-The ngrok binary is a command line executable.
-
-Run the following command.
-
-If you are using a Linux machine, execute the following commands.
-
--------------------
-$wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-
-$unzip ngrok-stable-linux-amd64.zip
-
-$rm ngrok-stable-linux-amd64.zip
-
-$chmod 755 ngrok
-
-$sudo mv ngrok /usr/bin/
-
-$ngrok http 3000
----------------------
-
-This command provides you the public URL that can be used in the application. In the sample example, the public URLs are http://60bc-27-7-127-107.ngrok.io and https://60bc-27-7-127-107.ngrok.io.
-
-Public_URL
-
-The path referred in the sample application is used with the NGROK tunnel URL as per the following table. Here only HTTPS URLs are listed, however you can use the HTTP URLs. Edit the NGROK tunnel URL as per the your local settings.
-----
-
-| Path                  | Public URL (using NGROK) |
-| -------------         | ------------- |
-| /eml                  | https://60bc-27-7-127-107.ngrok.io/eml  |
-| /gatherAction         | https://60bc-27-7-127-107.ngrok.io/gatherAction  |
-| /statuscallback       | https://60bc-27-7-127-107.ngrok.io/statuscallback  |
-| / (no path specified) | https://60bc-27-7-127-107.ngrok.io/ |
-
-
-----
 
 
 ### Making a Call
