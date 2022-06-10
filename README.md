@@ -56,7 +56,7 @@ Note: <br>
 </p>
 
 <p>
-The path referred in sample application can be used with NGROK tunnel URL as illustrated below. Only https example is listed below but you can use http also likewise. Note you will have to change the NGROK tunnel URL as per your local setting: <br>
+The path referred in sample application can be used with NGROK tunnel URL as illustrated below. Only https example is listed below but you can use http also likewise.<br>
 
 | Path                  | Public URL (using NGROK)                          |
 |-----------------------|---------------------------------------------------|
@@ -65,6 +65,8 @@ The path referred in sample application can be used with NGROK tunnel URL as ill
 | /statuscallback       | https://60bc-27-7-127-107.ngrok.io/statuscallback |
 | / (no path specified) | https://60bc-27-7-127-107.ngrok.io/               |
 	
+Note:<br>
+You will have to change the NGROK tunnel URL as per your local setting: Modify gatherAction URL in the index.js i.e. comment out line number 22 and uncomment line number 26. Replace the example ngrok url with your ngrok application tunnel url in line number 26.<br>
 </p>
 
 <h3>Run Server Application</h3>
