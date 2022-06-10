@@ -3,16 +3,18 @@ This application demonstrates sample play-collect server application that can be
 
 
 
-<h2>Pre-requisites<h2>
+<h2>Pre-requisites</h2>
 
-Software Installations
+<h3>Software Installations</h3>
 Node.js needs to be installed to use this application 
 
-Source Code Download
+<h3>Source Code Download</h3>
 Download the sample play-collect server application for the current repository as a zip file or clone the repository
 
-Lets assume you have unzipped/cloned the repository to directory named "myapp"
-$ cd myapp
+<p>
+	Lets assume you have unzipped/cloned the repository to directory named "myapp"
+	$ cd myapp
+</p>
 
 Use the npm init command to create a package.json file for your application. 
 $ npm init
