@@ -1,5 +1,5 @@
 # engage-sample-play-collect-server-application
-This application demonstrates sample play-collect server application that can be used to simulate statuscallbacks and EML handling use-cases on customer side
+This application demonstrates sample play-collect server application using an API call and Engage markup language (EML). It also showcases the statuscallback events to the server application.
 
 
 
