@@ -2,23 +2,23 @@
 This application demonstrates sample play-collect server application that can be used to simulate statuscallbacks and EML handling use-cases on customer side
 
 
-CUSTOMER SERVER APPLICATION
-This section describes how to create a sample Customer Business Application and interaction with EDP. 
-5.1	Node.js example
-Pre-requisites Installing
+
+Pre-requisites 
+
+Software Installations
 Node.js needs to be installed to use this application 
 
-Code Download
-Download the sample play-collect server application for github location
+Source Code Download
+Download the sample play-collect server application for the current repository as a zip file or clone the repository
 
-$ mkdir myapp
+Lets assume you have unzipped/cloned the repository to directory named "myapp"
 $ cd myapp
-$ cp
 
 Use the npm init command to create a package.json file for your application. 
 $ npm init
 
 Note: This command prompts you for a number of things, such as the name and version of your application. For now, you can simply hit ENTER to accept the defaults.
+
 Now install Express in the myapp directory and save it in the dependencies list. For example:
 $ npm install express --save
 
