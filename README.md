@@ -3,7 +3,7 @@ This application demonstrates sample play-collect server application that can be
 
 
 
-Pre-requisites 
+<h2>Pre-requisites<h2>
 
 Software Installations
 Node.js needs to be installed to use this application 
