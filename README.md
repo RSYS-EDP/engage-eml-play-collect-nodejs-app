@@ -58,12 +58,12 @@ Note: <br>
 <p>
 The path referred in sample application can be used with NGROK tunnel URL as illustrated below. Only https example is listed below but you can use http also likewise. Note you will have to change the NGROK tunnel URL as per your local setting: <br>
 
-| Path                  | Public URL (using NGROK)                          |   |   |   |
-|-----------------------|---------------------------------------------------|---|---|---|
-| /eml                  | https://60bc-27-7-127-107.ngrok.io/eml            |   |   |   |
-| /gatherAction         | https://60bc-27-7-127-107.ngrok.io/gatherAction   |   |   |   |
-| /statuscallback       | https://60bc-27-7-127-107.ngrok.io/statuscallback |   |   |   |
-| / (no path specified) | https://60bc-27-7-127-107.ngrok.io/               |   |   |   |
+| Path                  | Public URL (using NGROK)                          |
+|-----------------------|---------------------------------------------------|
+| /eml                  | https://60bc-27-7-127-107.ngrok.io/eml            |
+| /gatherAction         | https://60bc-27-7-127-107.ngrok.io/gatherAction   |
+| /statuscallback       | https://60bc-27-7-127-107.ngrok.io/statuscallback |
+| / (no path specified) | https://60bc-27-7-127-107.ngrok.io/               |
 	
 </p>
 
