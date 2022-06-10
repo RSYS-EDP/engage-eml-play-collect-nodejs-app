@@ -1,14 +1,19 @@
-# engage-rest-api-play-collect-sample-js
-Engage REST API sample usage using JS
+# engage-sample-play-collect-server-application
+This application demonstrates sample play-collect server application that can be used to simulate statuscallbacks and EML handling use-cases on customer side
 
 
-CUSTOMER BUSINESS APPLICATION
+CUSTOMER SERVER APPLICATION
 This section describes how to create a sample Customer Business Application and interaction with EDP. 
 5.1	Node.js example
-5.1.1	Installing
-Assuming you’ve already installed Node.js, create a directory to hold your application, and make that your working directory.
+Pre-requisites Installing
+Node.js needs to be installed to use this application 
+
+Code Download
+Download the sample play-collect server application for github location
+
 $ mkdir myapp
 $ cd myapp
+$ cp
 
 Use the npm init command to create a package.json file for your application. 
 $ npm init
