@@ -54,7 +54,8 @@ Note: <br>
 
 <br>This command will provide you the public URL which you can use in the application. In the sample show http://60bc-27-7-127-107.ngrok.io and https://60bc-27-7-127-107.ngrok.io are the public URL.
 </p>
- 
+
+<p>
 The path referred in sample application can be used with NGROK tunnel URL as illustrated below. Only https example is listed below but you can use http also likewise. Note you will have to change the NGROK tunnel URL as per your local setting: 
 Path 	Public URL (using NGROK)
 /eml	https://60bc-27-7-127-107.ngrok.io/eml
@@ -62,10 +63,12 @@ Path 	Public URL (using NGROK)
 /statuscallback	https://60bc-27-7-127-107.ngrok.io/statuscallback
 
 / (no path specified)	https://60bc-27-7-127-107.ngrok.io/
+</p>
 
-5.1.4	Run Server Application
-Run the app with the following command:
+<h3>Run Server Application</h3>
+<p>Run the app with the following command:<br>
 $ node index.js
+</p>
 
 
 
