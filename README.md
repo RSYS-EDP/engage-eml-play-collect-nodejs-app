@@ -27,14 +27,14 @@ $ npm install express --save<br>
 Note: <br>
 <ul>
 <li>Make sure 3000 port is free, if 3000 port is used by any other application you can change the port</li>
-<li>index.js contains localhost as ip address. If you have public ip replace localhost with your public ip and jump to section "How to run application". If you don’t know the public ip continue with section 5.1.3</li>
+<li>index.js contains localhost as ip address. If you have public ip replace localhost with your public ip and jump to section "How to run application". If you don’t know the public ip continue with section "Application behind NAT"</li>
 </ul>
 </p>
 
 <h3>Application behind NAT (Optional)</h3>
 <p>You can use NGROK (ngrok.com) to expose your local machine to internet. It’s a quick way to test web application from internet. You can let EDP interact with your application running on local machine without really having a public IP or domain name. </p>
 
-<p>Below mentioned steps needs to be executed if your application is running behind NAT. Otherwise jump to section 5.1.4.</p>
+<p>Below mentioned steps needs to be executed if your application is running behind NAT. Otherwise jump to section "Run Server Application"</p>
 
 <ul>
 	<li>Download ngrok from https://ngrok.com/download</li>
