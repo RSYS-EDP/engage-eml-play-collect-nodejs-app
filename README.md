@@ -38,6 +38,7 @@ Note: <br>
 
 <ul>
 	<li>Download ngrok from https://ngrok.com/download</li>
+	<li>sign up with ngrok account. Get the authetication key from your account</li>
 	<li>ngrok binary is a command line executable.</li>
 	<li>Run the following command. </li>
 </ul>
@@ -49,6 +50,7 @@ Note: <br>
 	<li>$rm ngrok-stable-linux-amd64.zip</li>
 	<li>$chmod 755 ngrok</li>
 	<li>$sudo mv ngrok /usr/bin/</li>
+	<li>Authenticate your ngrok agent by running the command in terminal. "ngrok config add-authtoken TOKEN"</li>
 	<li>$ngrok http 3000</li>
 </ul>
 
@@ -56,6 +58,14 @@ Note: <br>
 
 ![image](https://user-images.githubusercontent.com/105645941/173058143-fcf053a5-274a-4ff1-953f-7b07e1c293b3.png)
 
+
+For windows system, follow the below stepsAuthenticate your ngrok agent by running the command in terminal
+<ul>
+	<li>Download ngrok from https://ngrok.com/download</li>
+	<li>sign up with ngrok account. Get the authetication key from your account</li>
+	<<li>Authenticate your ngrok agent by running the command in terminal. "ngrok config add-authtoken TOKEN"</li>
+	<li>$ngrok http 3000</li>
+</ul>
 </p>
 
 <p>
