@@ -97,7 +97,7 @@ Perform the following steps to make a call using EDP.
 To make a call using the EDP, execute the server application with the following command.
 
 -----------------
-curl -k -XPOST https://BASE_URL/api/v1/accounts/{AccID}/call \
+curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call \
 --header 'apikey: API_KEY' \
 --header 'Content-Type: application/json' \
 --d '{
@@ -117,7 +117,7 @@ NOTE: The apikey and AccID are accessed from the Engage Portal.
 Replace the YOUR_PUBLIC_IP with the IP address of your server. If you are using the application behind NAT (NGROK), the ‘Url’ and ‘StatusCallback’ parameters are mentioned as below.
 
 ------------------
-curl -k -XPOST https://BASE_URL/api/v1/accounts/{AccID}/call \
+curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call \
 --header 'apikey: API_KEY' \
 --header 'Content-Type: application/json' \
 --d '{
