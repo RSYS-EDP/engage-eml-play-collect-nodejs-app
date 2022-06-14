@@ -115,8 +115,8 @@ curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call 
 NOTE:
 <ul>
 <li>The apikey and AccID are obtained from your account in Engage Portal.</li>
-<li>Replace YOUR_PUBLIC_IP with the IP address of your server. If you are using the application behind NAT (NGROK), the ‘Url’ and ‘StatusCallback’ parameters are mentioned as below.</li>
 <li>"From" number should be the phone number allocated to your account</li>
+<li>Replace YOUR_PUBLIC_IP with the IP address of your server. If you are using the application behind NAT (NGROK), the ‘Url’ and ‘StatusCallback’ parameters are mentioned as below.</li>
 </ul>
 
 
