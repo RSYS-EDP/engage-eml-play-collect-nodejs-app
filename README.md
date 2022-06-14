@@ -87,14 +87,14 @@ Perform the following steps to make a call using EDP.
 To make a call using the EDP, execute the server application with the following command.
 
 -----------------
-curl -k -XPOST https://<<base URL>>/api/v1/accounts/{AccID}/call \
---header 'apikey: <<Your API Key>>' \
+curl -k -XPOST https://BASE_URL/api/v1/accounts/{AccID}/call \
+--header 'apikey: API_KEY' \
 --header 'Content-Type: application/json' \
 --d '{
 "From":"6070707112",
 "To":sip:123456787@sipaz1.engageio.com,
-"Url":https://<YOUR_PUBLIC_IP>:3000/eml,
-"StatusCallback": https://<YOUR_PUBLIC_IP>:3000/statuscallback,
+"Url":https://YOUR_PUBLIC_IP:3000/eml,
+"StatusCallback": https://YOUR_PUBLIC_IP:3000/statuscallback,
 "StatusCallbackEvent":"initiated,ringing,answered,completed",
 "StatusCallbackMethod":"POST",
 "Type":"voice"
@@ -104,11 +104,11 @@ curl -k -XPOST https://<<base URL>>/api/v1/accounts/{AccID}/call \
 
 NOTE: The apikey and AccID are accessed from the Engage Portal.
 
-Replace the <YourApplicationPublicIp> with the IP address of your server. If you are using the application behind NAT (NGROK), the ‘Url’ and ‘StatusCallback’ parameters are mentioned as below.
+Replace the YOUR_PUBLIC_IP with the IP address of your server. If you are using the application behind NAT (NGROK), the ‘Url’ and ‘StatusCallback’ parameters are mentioned as below.
 
 ------------------
-curl -k -XPOST https://<<base URL>>/api/v1/accounts/{AccID}/call \
---header 'apikey: <<Your API Key>>' \
+curl -k -XPOST https://BASE_URL/api/v1/accounts/{AccID}/call \
+--header 'apikey: API_KEY' \
 --header 'Content-Type: application/json' \
 --d '{
 "From":"6070707112",
