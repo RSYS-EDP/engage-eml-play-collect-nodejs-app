@@ -97,6 +97,7 @@ Perform the following steps to make a call using EDP.
 To make a call using the EDP, execute the server application with the following command.
 
 -----------------
+<code>
 curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call \
 --header 'apikey: API_KEY' \
 --header 'Content-Type: application/json' \
@@ -109,7 +110,7 @@ curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call 
 "StatusCallbackMethod":"POST",
 "Type":"voice"
 }'
------------------
+</code>
 
 
 NOTE:
@@ -121,6 +122,7 @@ NOTE:
 
 
 ------------------
+<code>
 curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call \
 --header 'apikey: API_KEY' \
 --header 'Content-Type: application/json' \
@@ -132,6 +134,6 @@ curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call 
 "StatusCallbackEvent":"initiated,ringing,answered,completed",
 "StatusCallbackMethod":"POST",
 "Type":"voice"
-}'
------------------
+}'</code>
+
 
