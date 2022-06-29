@@ -86,6 +86,9 @@ You will have to change the NGROK tunnel URL as per your local setting: Modify g
 <p>Run the app with the following command:<br>
 $ node index.js
 </p>
+<p>
+Application will receive a HTTP POST request, in response it will send EML to fetch DTMF input from user. On user input/noinput call will be disconnected after playing a “Thank You” prompt
+</p>
 
 
 
@@ -103,9 +106,9 @@ curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call
 --header 'Content-Type: application/json' 
 -d '{
 "From":"6070707112",
-"To":sip:123456787@sipaz1.engageio.com,
-"Url":https://YOUR_PUBLIC_IP:3000/eml,
-"StatusCallback": https://YOUR_PUBLIC_IP:3000/statuscallback,
+"To":"sip:123456787@sipaz1.engageio.com",
+"Url":"https://YOUR_PUBLIC_IP:3000/eml",
+"StatusCallback": "https://YOUR_PUBLIC_IP:3000/statuscallback",
 "StatusCallbackEvent":"initiated,ringing,answered,completed",
 "StatusCallbackMethod":"POST",
 "Type":"voice"
@@ -128,9 +131,9 @@ curl -k -XPOST https://apigateway.engagedigital.ai/api/v1/accounts/{AccID}/call
 --header 'Content-Type: application/json' 
 -d '{
 "From":"6070707112",
-"To":sip:123456787@sipaz1.engageio.com,
-"Url":https://60bc-27-7-127-107.ngrok.io/eml,
-"StatusCallback": https://60bc-27-7-127-107.ngrok.io/statuscallback,
+"To":"sip:123456787@sipaz1.engageio.com",
+"Url":"https://60bc-27-7-127-107.ngrok.io/eml",
+"StatusCallback": "https://60bc-27-7-127-107.ngrok.io/statuscallback",
 "StatusCallbackEvent":"initiated,ringing,answered,completed",
 "StatusCallbackMethod":"POST",
 "Type":"voice"
